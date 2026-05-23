@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 """Performs an audit and reports on installed scripts and plugins."""
 
-from pkg_resources import iter_entry_points
+from importlib.metadata import entry_points as _entry_points
+
+
+def iter_entry_points(group):
+    return _entry_points(group=group)
 
 from ._columnize import columnize
 
